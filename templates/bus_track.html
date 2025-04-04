@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body class="bg-gray-100 flex min-h-screen">
+    <!-- Sidebar -->
+    <div class="w-64 bg-gray-900 text-white p-5 min-h-screen flex flex-col justify-between">
+        <div>
+            <h1 class="text-2xl font-bold mb-6">BBS</h1>
+            <ul class="space-y-4">
+                <li><a href="/HomePage" class="block px-4 py-2 hover:bg-gray-700 rounded">Dashboard</a></li>
+                <li><a href="/profile" class="block px-4 py-2 hover:bg-gray-700 rounded">Profile</a></li>
+                <li><a href="/TimePage" class="block px-4 py-2 hover:bg-gray-700 rounded">Booking</a></li>
+                <li><a href="/emergency_booking" class="block px-4 py-2 hover:bg-gray-700 rounded">Tatkal Booking</a></li>
+                <li><a href="/bus_track" class="block px-4 py-2 hover:bg-gray-700 rounded">Live Bus Tracking</a></li>
+                <li><a href="/student_pass" class="block px-4 py-2 hover:bg-gray-700 rounded">Student Pass</a></li>
+                <li><a href="/CommunityForum" class="block px-4 py-2 hover:bg-gray-700 rounded">Community Forum</a></li>
+            </ul>
+        </div>
+        <div class="mt-auto">
+            <a href="/logout" class="mt-4 block text-center bg-red-600 hover:bg-red-700 text-white py-2 rounded">Logout</a>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="flex-1 p-6">
+        <h2 class="text-3xl font-semibold text-gray-700">Live Bus Tracker</h2>
+        <p class="text-gray-500 mb-6">Track your bus location in real-time:</p>
+        
+        <div id="map" style="height: 500px; border-radius: 10px; overflow: hidden;"></div>
+    </div>
+
+    <script>
+        var map = L.map('map').setView([19.0760, 72.8777], 12); // Default Mumbai location
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+        var marker = L.marker([19.0760, 72.8777]).addTo(map);
+
+        function updateBusLocation() {
+            fetch('/get_bus_location/1') // Get bus ID 1 location
+                .then(response => response.json())
+                .then(data => {
+                    marker.setLatLng([data.lat, data.lng]);
+                    map.setView([data.lat, data.lng], 12);
+                })
+                .catch(error => console.error('Error fetching bus location:', error));
+        }
+
+        setInterval(updateBusLocation, 5000); // Update every 5 seconds
+    </script>
+</body>
+</html>

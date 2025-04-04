@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Confirmation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center">
+    <div class="w-64 bg-gray-900 text-white p-5 min-h-screen flex flex-col justify-between">
+        <div>
+            <h1 class="text-2xl font-bold mb-6">BBS</h1>
+            <ul class="space-y-4">
+                <li><a href="/Homepage" class="block px-4 py-2 hover:bg-gray-700 rounded">Dashboard</a></li>
+                <li><a href="/profile" class="block px-4 py-2 hover:bg-gray-700 rounded">Profile</a></li>
+                <li><a href="/TimePage" class="block px-4 py-2 hover:bg-gray-700 rounded">Booking</a></li>
+                <li><a href="/emergency_booking" class="block px-4 py-2 hover:bg-gray-700 rounded">Emergency Booking</a></li>
+                <li><a href="/bus_track" class="block px-4 py-2 hover:bg-gray-700 rounded">Live Bus Tracking</a></li>
+                <li><a href="/student_pass" class="block px-4 py-2 hover:bg-gray-700 rounded">Student Pass</a></li>
+                <li><a href="/CommunityForum" class="block px-4 py-2 hover:bg-gray-700 rounded">Community Forum</a></li>
+            </ul>
+        </div>
+        <div class="mt-auto">
+            <button class="mt-4 w-full bg-red-600 hover:bg-red-700 text-white py-2 rounded">Logout</button>
+        </div>
+    </div>
+
+<div class="flex-1 flex items-center justify-center p-6">
+  <div class="bg-white shadow-lg rounded-lg max-w-md w-full p-6 relative">
+    <div class="text-center">
+        <h1 class="text-2xl font-semibold text-gray-700">Ticket Confirmation</h1>
+        <p class="text-gray-500 mt-2">Your booking details are below:</p>
+    </div>
+    <div class="bg-gray-200 rounded-lg p-4 mt-4">
+        <div class="text-center text-gray-700">
+            <p class="font-semibold">Ticket ID:</p>
+            <p class="text-lg font-bold text-blue-600">#{{ ticket_id }}</p>
+        </div>
+        <div class="mt-4 text-gray-700">
+            <p class="font-semibold">Seat Number:</p>
+            <p class="text-lg">{{ seatno }}</p>
+        </div>
+        <div class="mt-4 text-gray-700">
+            <p class="font-semibold">Issued By:</p>
+            <p class="text-lg">{{ enroll }}</p>
+        </div>
+        <div class="mt-4 text-gray-700">
+            <p class="font-semibold">Date:</p>
+            <p class="text-lg" id="date"></p>
+        </div>
+    </div>
+    <div class="text-center mt-4">
+        <a href="/logout" 
+           class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">Logout</a>
+    </div>
+</div>
+</div>
+    <script>
+        let d = new Date();
+        document.getElementById("date").textContent = `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`;
+    </script>
+</body>
+</html>

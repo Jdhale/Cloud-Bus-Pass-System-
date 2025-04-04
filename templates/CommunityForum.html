@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Forum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex min-h-screen">
+    <!-- Sidebar -->
+    <div class="w-64 bg-gray-900 text-white p-5 min-h-screen flex flex-col justify-between">
+        <div>
+            <h1 class="text-2xl font-bold mb-6">BBS</h1>
+            <ul class="space-y-4">
+                <li><a href="/Homepage" class="block px-4 py-2 hover:bg-gray-700 rounded">Dashboard</a></li>
+                <li><a href="/profile" class="block px-4 py-2 hover:bg-gray-700 rounded">Profile</a></li>
+                <li><a href="/TimePage" class="block px-4 py-2 hover:bg-gray-700 rounded">Booking</a></li>
+                <li><a href="/emergency_booking" class="block px-4 py-2 hover:bg-gray-700 rounded">Emergency Booking</a></li>
+                <li><a href="/bus_track" class="block px-4 py-2 hover:bg-gray-700 rounded">Live Bus Tracking</a></li>
+                <li><a href="/student_pass" class="block px-4 py-2 hover:bg-gray-700 rounded">Student Pass</a></li>
+                <li><a href="/CommunityForum" class="block px-4 py-2 hover:bg-gray-700 rounded">Community Forum</a></li>
+            </ul>
+        </div>
+        <div class="mt-auto">
+            <button class="mt-4 w-full bg-red-600 hover:bg-red-700 text-white py-2 rounded">Logout</button>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="flex-1 p-6">
+        <h2 class="text-3xl font-semibold text-gray-700">Community Forum</h2>
+        <p class="text-gray-500 mb-6">Engage with the community and discuss topics.</p>
+        
+        <section class="space-y-6">
+            {% for post in posts %}
+                <article class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-xl font-semibold text-gray-800">{{ post[1] }}</h2>
+                    <p class="text-gray-600 mt-2">{{ post[2] }}</p>
+                    <small class="text-gray-500">Posted on {{ post[3] }}</small>
+                </article>
+            {% endfor %}
+        </section>
+        
+        <form action="/submit" method="post" class="mt-6 bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold text-gray-800">Create a Post</h2>
+            <label for="postTitle" class="block text-gray-700 mt-4">Title:</label>
+            <input type="text" id="postTitle" name="postTitle" class="w-full p-2 border rounded mt-1" required>
+            
+            <label for="postContent" class="block text-gray-700 mt-4">Content:</label>
+            <textarea id="postContent" name="postContent" rows="4" class="w-full p-2 border rounded mt-1" required></textarea>
+            
+            <button type="submit" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Submit Post</button>
+        </form>
+    </div>
+</body>
+</html>

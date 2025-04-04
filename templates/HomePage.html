@@ -1,0 +1,64 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gray-100 flex min-h-screen">
+        <!-- Sidebar -->
+        <div class="w-64 bg-gray-900 text-white p-5 min-h-screen flex flex-col justify-between">
+            <div>
+                <h1 class="text-2xl font-bold mb-6">BBS</h1>
+                <ul class="space-y-4">
+                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-700 rounded">Dashboard</a></li>
+                    <li><a href="/profile" class="block px-4 py-2 hover:bg-gray-700 rounded">Profile</a></li>
+                    <li><a href="/TimePage" class="block px-4 py-2 hover:bg-gray-700 rounded">Booking</a></li>
+                    <li><a href="/emergency_booking" class="block px-4 py-2 hover:bg-gray-700 rounded">Emergency Booking</a></li>
+                    <li><a href="/bus_track" class="block px-4 py-2 hover:bg-gray-700 rounded">Live Bus Tracking</a></li>
+                    <li><a href="/student_pass" class="block px-4 py-2 hover:bg-gray-700 rounded">Student Pass</a></li>
+                    <li><a href="/CommunityForum" class="block px-4 py-2 hover:bg-gray-700 rounded">Community Forum</a></li>
+                </ul>
+            </div>
+            <div class="mt-auto">
+                <button class="mt-4 w-full bg-red-600 hover:bg-red-700 text-white py-2 rounded">Logout</button>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="flex-1 p-6">
+            <h2 class="text-3xl font-semibold text-gray-700">Welcome</h2>
+            <p class="text-gray-500 mb-6">Select an option below:</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                <a href="/profile" class="bg-blue-500 text-white p-6 rounded-lg shadow-md flex flex-col items-center hover:bg-blue-600">
+                    <span class="text-4xl">👤</span>
+                    <span class="mt-2 text-lg font-semibold">Profile</span>
+                </a>
+                <a href="/TimePage" class="bg-green-500 text-white p-6 rounded-lg shadow-md flex flex-col items-center hover:bg-green-600">
+                    <span class="text-4xl">📅</span>
+                    <span class="mt-2 text-lg font-semibold">Booking</span>
+                </a>
+                <a href="/emergency_booking" class="bg-yellow-500 text-white p-6 rounded-lg shadow-md flex flex-col items-center hover:bg-yellow-600">
+                    <span class="text-4xl">⚡</span>
+                    <span class="mt-2 text-lg font-semibold">Tatkal Booking</span>
+                </a>
+                    <a href="/bus_track" class="bg-red-500 text-white p-6 rounded-lg shadow-md flex flex-col items-center hover:bg-red-600">
+                        <span class="text-4xl">🚌</span>
+                        <span class="mt-2 text-lg font-semibold">Live Bus Tracking</span>
+                    </a>
+                    <a href="/student_pass" class="bg-teal-500 text-white p-6 rounded-lg shadow-md flex flex-col items-center hover:bg-teal-600">
+                        <span class="text-4xl">🎓</span>
+                        <span class="mt-2 text-lg font-semibold">Student Pass</span>
+                    </a>
+                    
+                    
+                <a href="/CommunityForum" class="bg-purple-500 text-white p-6 rounded-lg shadow-md flex flex-col items-center hover:bg-purple-600">
+                    <span class="text-4xl">💬</span>
+                    <span class="mt-2 text-lg font-semibold">Community Forum</span>
+                </a>
+            </div>
+        </div>
+    </body>
+    </html>
