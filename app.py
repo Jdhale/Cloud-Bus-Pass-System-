@@ -12,7 +12,7 @@ app = Flask(__name__)
 app.secret_key = 'spymun'  
 
 try:
-    cnx = mysql.connector.connect(user='root', password='janhvi123',
+    cnx = mysql.connector.connect(user='root', password='NewStrongPass123!',
                                   database='demoSE')
 except mysql.connector.Error as err:
     if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
@@ -26,14 +26,14 @@ else:
     cnx.close()
 db_config = {
     'user': 'root',
-    'password': 'janhvi123',
+    'password': 'NewStrongPass123!',
     'host': 'localhost',
     'database': 'demoseat',
 }
 
 def validate_credentials(enrollmentno, password):
     try:
-        cnx = mysql.connector.connect(user='root', password='janhvi123',
+        cnx = mysql.connector.connect(user='root', password='NewStrongPass123!',
                                       database='demoSE')
         cursor = cnx.cursor()
 
@@ -53,7 +53,7 @@ def validate_credentials(enrollmentno, password):
 
 def display_seat(seats,date):
     try:
-        cnx = mysql.connector.connect(user='root', password='janhvi123', database='demoseat')
+        cnx = mysql.connector.connect(user='root', password='NewStrongPass123!', database='demoseat')
     except mysql.connector.Error as err:
         if err.errno == mysql.connector.errorcode.ER_ACCESS_DENIED_ERROR:
             print("Something is wrong with your user name or password")
@@ -76,7 +76,7 @@ def display_seat(seats,date):
 
 def update_status(seat_number,date):
     try:
-        cnx = mysql.connector.connect(user='root', password='janhvi123', database='demoseat')
+        cnx = mysql.connector.connect(user='root', password='NewStrongPass123!', database='demoseat')
     except mysql.connector.Error as err:
         if err.errno == mysql.connector.errorcode.ER_ACCESS_DENIED_ERROR:
             print("Something is wrong with your user name or password")
@@ -131,7 +131,7 @@ def fetch_booked_seats(enrollment):
         return []
 def get_available_seats():
     try:
-        cnx = mysql.connector.connect(user='root', password='janhvi123',
+        cnx = mysql.connector.connect(user='root', password='NewStrongPass123!',
                                       host='localhost', database='demoseat')
         cursor = cnx.cursor()
 
@@ -188,7 +188,7 @@ def login():
 
 @app.route('/CommunityForum')
 def CommunityForum():
-    cnx = mysql.connector.connect(user='root', password='janhvi123',
+    cnx = mysql.connector.connect(user='root', password='NewStrongPass123!',
                                   database='demoSE')
     cursor=cnx.cursor()
     cursor.execute('SELECT * FROM posts ORDER BY date DESC')
@@ -198,7 +198,7 @@ def CommunityForum():
 
 @app.route('/submit', methods=['POST'])
 def submit_post():
-    cnx = mysql.connector.connect(user='root', password='janhvi123',
+    cnx = mysql.connector.connect(user='root', password='NewStrongPass123!',
                                   database='demoSE')
     cursor=cnx.cursor()
     title = request.form['postTitle']
@@ -244,8 +244,7 @@ def emergency_booking():
 def book_seat():
     selected_seat = request.form['seat']
     try:
-        cnx = mysql.connector.connect(user='root', password='janhvi123',
-                                      host='localhost', database='demoseat')
+        cnx = mysql.connector.connect(user='root', password='NewStrongPass123!', host='localhost', database='demoseat')
         cursor = cnx.cursor()
 
         query = "UPDATE emer_table SET  status='Unavailable' WHERE seat_number = {}".format(selected_seat)
@@ -286,7 +285,7 @@ def get_bus_location(bus_id):
 
 def connect_db():
     try:
-        cnx = mysql.connector.connect(user='root', password='janhvi123', database='demoSE')
+        cnx = mysql.connector.connect(user='root', password='NewStrongPass123!', database='demoSE')
         return cnx
     except mysql.connector.Error as err:
         print(f"Error: {err}")
