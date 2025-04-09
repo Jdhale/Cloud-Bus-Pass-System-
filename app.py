@@ -13,7 +13,7 @@ app.secret_key = 'spymun'
 
 try:
     cnx = mysql.connector.connect(user='root', password='NewStrongPass123!',
-                                  database='demoSE')
+                                  database='demose')
 except mysql.connector.Error as err:
     if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
         print("Something is wrong with your user name or password")
@@ -34,7 +34,7 @@ db_config = {
 def validate_credentials(enrollmentno, password):
     try:
         cnx = mysql.connector.connect(user='root', password='NewStrongPass123!',
-                                      database='demoSE')
+                                      database='demose')
         cursor = cnx.cursor()
 
         query = "SELECT * FROM Userlogin WHERE enrollmentno = %s AND password = %s"
@@ -189,7 +189,7 @@ def login():
 @app.route('/CommunityForum')
 def CommunityForum():
     cnx = mysql.connector.connect(user='root', password='NewStrongPass123!',
-                                  database='demoSE')
+                                  database='demose')
     cursor=cnx.cursor()
     cursor.execute('SELECT * FROM posts ORDER BY date DESC')
     posts = cursor.fetchall()
@@ -199,7 +199,7 @@ def CommunityForum():
 @app.route('/submit', methods=['POST'])
 def submit_post():
     cnx = mysql.connector.connect(user='root', password='NewStrongPass123!',
-                                  database='demoSE')
+                                  database='demose')
     cursor=cnx.cursor()
     title = request.form['postTitle']
     content = request.form['postContent']
@@ -285,7 +285,7 @@ def get_bus_location(bus_id):
 
 def connect_db():
     try:
-        cnx = mysql.connector.connect(user='root', password='NewStrongPass123!', database='demoSE')
+        cnx = mysql.connector.connect(user='root', password='NewStrongPass123!', database='demose')
         return cnx
     except mysql.connector.Error as err:
         print(f"Error: {err}")
