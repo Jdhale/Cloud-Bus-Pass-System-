@@ -37,7 +37,7 @@ def validate_credentials(enrollmentno, password):
                                       database='demose')
         cursor = cnx.cursor()
 
-        query = "SELECT * FROM Userlogin WHERE enrollmentno = %s AND password = %s"
+        query = "SELECT * FROM userlogin WHERE enrollmentno = %s AND password = %s"
         cursor.execute(query, (enrollmentno, password))
         result = cursor.fetchone()
 
